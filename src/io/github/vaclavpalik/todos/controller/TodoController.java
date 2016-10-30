@@ -6,10 +6,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,10 +25,12 @@ import io.github.vaclavpalik.todos.view.TodoJsonView;
 public class TodoController {
 	private Map<Integer, Todo> todos = new ConcurrentHashMap<>();
 
+	@JsonView(TodoJsonView.class)
+	@ResponseStatus(code = HttpStatus.CREATED)
 	@RequestMapping(value = "createTodo", method = RequestMethod.POST)
-	public ModelAndView createTodo(@ModelAttribute Todo todo) {
+	public Todo createTodo(@ModelAttribute Todo todo) {
 		todos.put(todo.getId(), todo);
-		return new ModelAndView("operationSuccessful");
+		return todo;
 	}
 
 	@JsonView(TodoJsonView.class)
