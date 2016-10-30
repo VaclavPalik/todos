@@ -48,4 +48,8 @@ public class Todo {
 	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
+	
+	public boolean isAfterDeadline() {
+		return !resolved && LocalDate.now().compareTo(resolveUntil)>0;
+	}
 }
