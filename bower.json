@@ -1,0 +1,24 @@
+{
+  "name": "todos",
+  "authors": [
+    "Vaclav Palik <vaclavpalik@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.1.1",
+    "less": "~2.7.1",
+    "angular": "1",
+    "uikit": "~2.27.2"
+  }
+}
