@@ -3,6 +3,10 @@ package io.github.vaclavpalik.todos.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import io.github.vaclavpalik.todos.view.TodoJsonView;
+
 public class Todo {
 	private static int counter = 0;
 
@@ -17,6 +21,7 @@ public class Todo {
 		this.resolveUntil = resolveUntil;
 	}
 
+	@JsonView(TodoJsonView.class)
 	public String getDescription() {
 		return description;
 	}
@@ -25,6 +30,7 @@ public class Todo {
 		this.description = description;
 	}
 
+	@JsonView(TodoJsonView.class)
 	public LocalDate getResolveUntil() {
 		return resolveUntil;
 	}
@@ -33,6 +39,7 @@ public class Todo {
 		this.resolveUntil = resolveUntil;
 	}
 
+	@JsonView(TodoJsonView.class)
 	public boolean isResolved() {
 		return resolved;
 	}
@@ -41,10 +48,12 @@ public class Todo {
 		this.resolved = resolved;
 	}
 
+	@JsonView(TodoJsonView.class)
 	public int getId() {
 		return id;
 	}
 
+	@JsonView(TodoJsonView.class)
 	public LocalDateTime getCreatedOn() {
 		return createdOn;
 	}
