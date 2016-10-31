@@ -1,5 +1,5 @@
 {
-	app.controller("createTodo",  ($scope, $http) => {
+	app.controller("createTodo",  ($rootScope, $scope, $http) => {
 		$scope.sendForm = (event) => {
 			event.preventDefault();
 			$http({
@@ -13,6 +13,7 @@
 				}).success((data) => {
 					$scope.todo=data;
 					UIkit.modal("#createNew").hide();
+					$rootScope.$broadcast('refresh');
 					UIkit.modal.alert('Created new Todo: '+$scope.todo);
 			});
 		};

@@ -1,8 +1,13 @@
 {
 	app.controller('listTodos', ($scope, $http) => {
-    $http.get('listTodos').
-        then(function(response) {
-            $scope.todos = response.data;
-        });
+		$scope.loadData = () => {$http.get('listTodos').
+			then((response) => {
+				$scope.todos = response.data;
+			});
+		}
+		$scope.loadData();
+		$scope.$on('refresh', (event) =>{
+			$scope.loadData();
+		});
 });
 }
