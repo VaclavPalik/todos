@@ -5,8 +5,11 @@
 <title>Todos</title>
 <link rel="stylesheet"
 	href="resources/bower_components/uikit/css/uikit.almost-flat.min.css" />
+<link rel="stylesheet"
+	href="resources/bower_components/uikit/css/components/datepicker.almost-flat.min.css" />
 <script src="resources/bower_components/jquery/dist/jquery.js"></script>
 <script src="resources/bower_components/uikit/js/uikit.min.js"></script>
+<script src="resources/bower_components/uikit/js/components/datepicker.min.js"></script>
 <script src="resources/bower_components/angular/angular.js"></script>
 
 <script src="resources/js/app.js"></script>
@@ -56,17 +59,17 @@
 			<div class="uk-modal-dialog">
 				<a class="uk-modal-close uk-close"></a>
 				<h2>Create new Todo</h2>
-				<form id="createNewForm" class="uk-form-horizontal" name="createNewForm" ng-submit="sendForm($event)" ng-controller="createTodo">
+				<form id="createNewForm" class="uk-form uk-form-horizontal" name="createNewForm" ng-submit="sendForm($event)" ng-controller="createTodo">
 					<div class="uk-form-row">
 						<label class="uk-form-label" for="description">Description</label>
 						<div class="uk-form-controls"><input type="text" name="description" ng-model="description"></div>
 					</div>
 					<div class="uk-form-row">
 						<label class="uk-form-label" for="resolveUntil">Resolve until</label>
-						<div class="uk-form-controls"><input type="text" name="resolveUntil" ng-model="resolveUntil"></div>
+						<div class="uk-form-controls"><input type="text" name="resolveUntil" ng-model="resolveUntil" data-uk-datepicker></div>
 					</div>
 					<div class="uk-form-row">
-						<div class="uk-form-controls"><input type="submit" value="Create"></div>
+						<div class="uk-form-controls"><button class="uk-button uk-button-primary" type="submit">Create</button></div>
 					</div>
 				</form>
 			</div>
@@ -75,21 +78,21 @@
 			<div class="uk-modal-dialog">
 				<a class="uk-modal-close uk-close"></a>
 				<h2>Edit Todo</h2>
-				<form class="uk-form-horizontal" id="editForm" name="editForm" ng-submit="sendForm($event)" ng-controller="updateTodo">
+				<form class="uk-form uk-form-horizontal" id="editForm" name="editForm" ng-submit="sendForm($event)" ng-controller="updateTodo">
 					<div class="uk-form-row">
 						<label class="uk-form-label" for="description">Description</label>
 						<div class="uk-form-controls"><input type="text" name="description" ng-model="todo.description"></div>
 					</div>
 					<div class="uk-form-row">
 						<label class="uk-form-label" for="resolveUntil">Resolve until</label>
-						<div class="uk-form-controls"><input type="text" name="resolveUntil" ng-model="todo.resolveUntil"></div>
+						<div class="uk-form-controls"><input type="text" name="resolveUntil" ng-model="todo.resolveUntil" data-uk-datepicker></div>
 					</div>
 					<div class="uk-form-row">
 						<label class="uk-form-label" for="resolved">Resolved</label>
 						<div class="uk-form-controls"><input type="checkbox" name="resolved" ng-model="todo.resolved"></div>
 					</div>
 					<div class="uk-form-row">
-						<div class="uk-form-controls"><input type="submit" value="Edit"></div>
+						<div class="uk-form-controls"><button class="uk-button uk-button-primary" type="submit">Edit</button></div>
 					</div>
 				</form>
 			</div>
