@@ -55,21 +55,42 @@
 		<div id="createNew" class="uk-modal">
 			<div class="uk-modal-dialog">
 				<a class="uk-modal-close uk-close"></a>
-				<form id="createNewForm" name="createNewForm" ng-submit="sendForm($event)" ng-controller="createTodo">
-					<input type="text" name="description" ng-model="description">
-					<input type="text" name="resolveUntil" ng-model="resolveUntil">
-					<input type="submit" value="Create">
+				<h2>Create new Todo</h2>
+				<form id="createNewForm" class="uk-form-horizontal" name="createNewForm" ng-submit="sendForm($event)" ng-controller="createTodo">
+					<div class="uk-form-row">
+						<label class="uk-form-label" for="description">Description</label>
+						<div class="uk-form-controls"><input type="text" name="description" ng-model="description"></div>
+					</div>
+					<div class="uk-form-row">
+						<label class="uk-form-label" for="resolveUntil">Resolve until</label>
+						<div class="uk-form-controls"><input type="text" name="resolveUntil" ng-model="resolveUntil"></div>
+					</div>
+					<div class="uk-form-row">
+						<div class="uk-form-controls"><input type="submit" value="Create"></div>
+					</div>
 				</form>
 			</div>
 		</div>
 		<div id="edit" class="uk-modal">
 			<div class="uk-modal-dialog">
 				<a class="uk-modal-close uk-close"></a>
-				<form id="editForm" name="editForm" ng-submit="sendForm($event)" ng-controller="updateTodo">
-					<input type="text" name="description" ng-model="todo.description">
-					<input type="text" name="resolveUntil" ng-model="todo.resolveUntil">
-					<input type="checkbox" name="resolved" ng-model="todo.resolved">
-					<input type="submit" value="Edit">
+				<h2>Edit Todo</h2>
+				<form class="uk-form-horizontal" id="editForm" name="editForm" ng-submit="sendForm($event)" ng-controller="updateTodo">
+					<div class="uk-form-row">
+						<label class="uk-form-label" for="description">Description</label>
+						<div class="uk-form-controls"><input type="text" name="description" ng-model="todo.description"></div>
+					</div>
+					<div class="uk-form-row">
+						<label class="uk-form-label" for="resolveUntil">Resolve until</label>
+						<div class="uk-form-controls"><input type="text" name="resolveUntil" ng-model="todo.resolveUntil"></div>
+					</div>
+					<div class="uk-form-row">
+						<label class="uk-form-label" for="resolved">Resolved</label>
+						<div class="uk-form-controls"><input type="checkbox" name="resolved" ng-model="todo.resolved"></div>
+					</div>
+					<div class="uk-form-row">
+						<div class="uk-form-controls"><input type="submit" value="Edit"></div>
+					</div>
 				</form>
 			</div>
 		</div>
