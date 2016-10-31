@@ -1,5 +1,5 @@
 {
-	app.controller("createTodo",  ($rootScope, $scope, $http) => {
+	app.controller("createTodo",  ($rootScope, $scope, $http, $filter) => {
 		$scope.sendForm = (event) => {
 			event.preventDefault();
 			$http({
@@ -14,7 +14,7 @@
 					$scope.todo=data;
 					UIkit.modal("#createNew").hide();
 					$rootScope.$broadcast('refresh');
-					UIkit.modal.alert('Created new Todo: '+$scope.todo);
+					UIkit.modal.alert('Created new Todo: '+$scope.todo.description+" with deadline: "+$filter('date')($scope.todo.resolveUntil,'dd.MM.yyyy'));
 			});
 		};
 	});
