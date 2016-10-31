@@ -12,6 +12,7 @@
 <script src="resources/js/app.js"></script>
 <script src="resources/js/app/listTodos.js"></script>
 <script src="resources/js/app/createTodo.js"></script>
+<script src="resources/js/app/updateTodo.js"></script>
 </head>
 <body>
 	<div
@@ -45,7 +46,7 @@
 					<td>{{todo.createdOn|date:'dd.MM.yyyy HH:mm:ss'}}</td>
 					<td>{{todo.resolveUntil|date:'dd.MM.yyyy'}}</td>
 					<td>{{todo.resolved}}</td>
-					<td><a href=""><i class="uk-icon-edit"></i></a> <a href=""><i class="uk-icon-remove"></i></a></td>
+					<td><a href="#edit" data-uk-modal ng-click="passData(todo)"><i class="uk-icon-edit"></i></a> <a href=""><i class="uk-icon-remove"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -57,6 +58,17 @@
 					<input type="text" name="description" ng-model="description">
 					<input type="text" name="resolveUntil" ng-model="resolveUntil">
 					<input type="submit" value="Create">
+				</form>
+			</div>
+		</div>
+		<div id="edit" class="uk-modal">
+			<div class="uk-modal-dialog">
+				<a class="uk-modal-close uk-close"></a>
+				<form id="editForm" name="editForm" ng-submit="sendForm($event)" ng-controller="updateTodo">
+					<input type="text" name="description" ng-model="todo.description">
+					<input type="text" name="resolveUntil" ng-model="todo.resolveUntil">
+					<input type="checkbox" name="resolved" ng-model="todo.resolved">
+					<input type="submit" value="Edit">
 				</form>
 			</div>
 		</div>

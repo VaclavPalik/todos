@@ -1,10 +1,13 @@
 {
-	app.controller('listTodos', ($scope, $http) => {
+	app.controller('listTodos', ($rootScope, $scope, $http) => {
 		$scope.loadData = () => {$http.get('listTodos').
 			then((response) => {
 				$scope.todos = response.data;
 			});
 		}
+		$scope.passData = (todo) =>{
+			$rootScope.$broadcast('passTodo', todo);
+		};
 		$scope.loadData();
 		$scope.$on('refresh', (event) =>{
 			$scope.loadData();

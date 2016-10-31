@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -55,13 +56,12 @@ public class TodoController {
 	}
 
 	@RequestMapping(value = "updateTodo/{id}", method = RequestMethod.PUT)
-	public ModelAndView updateTodo(@PathVariable int id, @ModelAttribute Todo newValue) {
+	public void updateTodo(@PathVariable int id, @RequestBody Todo newValue) {
 		if (todos.containsKey(id)) {
 			Todo todo = todos.get(id);
 			todo.setDescription(newValue.getDescription());
 			todo.setResolveUntil(newValue.getResolveUntil());
 			todo.setResolved(newValue.isResolved());
-			return new ModelAndView("operationSuccessful");
 		} else {
 			throw new ResorceNotFoundException();
 		}
