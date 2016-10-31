@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -46,10 +45,9 @@ public class TodoController {
 	}
 
 	@RequestMapping(value = "deleteTodo/{id}", method = RequestMethod.DELETE)
-	public ModelAndView deleteTodo(@PathVariable int id) {
+	public void deleteTodo(@PathVariable int id) {
 		if (todos.containsKey(id)) {
 			todos.remove(id);
-			return new ModelAndView("operationSuccessful");
 		} else {
 			throw new ResorceNotFoundException();
 		}

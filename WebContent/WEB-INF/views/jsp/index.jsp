@@ -13,6 +13,7 @@
 <script src="resources/js/app/listTodos.js"></script>
 <script src="resources/js/app/createTodo.js"></script>
 <script src="resources/js/app/updateTodo.js"></script>
+<script src="resources/js/app/deleteTodo.js"></script>
 </head>
 <body>
 	<div
@@ -46,7 +47,7 @@
 					<td>{{todo.createdOn|date:'dd.MM.yyyy HH:mm:ss'}}</td>
 					<td>{{todo.resolveUntil|date:'dd.MM.yyyy'}}</td>
 					<td>{{todo.resolved}}</td>
-					<td><a href="#edit" data-uk-modal ng-click="passData(todo)"><i class="uk-icon-edit"></i></a> <a href=""><i class="uk-icon-remove"></i></a></td>
+					<td><a href="#edit" data-uk-modal ng-click="passData(todo)"><i class="uk-icon-edit"></i></a> <a href="#" ng-controller="deleteTodo" ng-click="executeDelete(todo.id)"><i class="uk-icon-remove"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
