@@ -6,7 +6,7 @@
 			});
 		}
 		$scope.passData = (todo) =>{
-			$rootScope.$broadcast('passTodo', todo);
+			$rootScope.$broadcast('passTodo', jQuery.extend(true, {}, todo));
 		};
 		$scope.loadData();
 		$scope.$on('refresh', (event) =>{
