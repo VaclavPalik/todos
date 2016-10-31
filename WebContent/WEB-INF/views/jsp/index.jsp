@@ -27,19 +27,25 @@
 				<li><a href="#createNew" data-uk-modal>Create new</a></li>
 			</ul>
 		</nav>
-		<table>
+		<table class="uk-table">
 			<thead>
 				<tr>
-					<th colspan="4">Todos</th>
+					<th>#</th>
+					<th>Description</th>
+					<th>Created on</th>
+					<th>Resolve until</th>
+					<th>Resolved</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody ng-controller="listTodos">
 				<tr ng-repeat="todo in todos">
 					<td>{{$index + 1}}</td>
 					<td>{{todo.description}}</td>
-					<td>{{todo.createdOn}}</td>
-					<td>{{todo.resolveUntil}}</td>
+					<td>{{todo.createdOn|date:'dd.MM.yyyy HH:mm:ss'}}</td>
+					<td>{{todo.resolveUntil|date:'dd.MM.yyyy'}}</td>
 					<td>{{todo.resolved}}</td>
+					<td><a href=""><i class="uk-icon-edit"></i></a> <a href=""><i class="uk-icon-remove"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
@@ -51,7 +57,6 @@
 					<input type="text" name="description" ng-model="description">
 					<input type="text" name="resolveUntil" ng-model="resolveUntil">
 					<input type="submit" value="Create">
-					{{description}}
 				</form>
 			</div>
 		</div>
