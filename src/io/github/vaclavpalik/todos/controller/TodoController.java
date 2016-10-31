@@ -29,6 +29,9 @@ public class TodoController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	@RequestMapping(value = "createTodo", method = RequestMethod.POST)
 	public Todo createTodo(@ModelAttribute Todo todo) {
+		if(todo.getDescription()==null||todo.getResolveUntil()==null){
+			throw new NullPointerException();
+		}
 		todos.put(todo.getId(), todo);
 		return todo;
 	}

@@ -3,6 +3,9 @@ package io.github.vaclavpalik.todos.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 import io.github.vaclavpalik.todos.view.TodoJsonView;
@@ -20,6 +23,10 @@ public class Todo {
 		this.description = description;
 		this.resolveUntil = resolveUntil;
 	}
+	
+	public Todo(){
+		
+	}
 
 	@JsonView(TodoJsonView.class)
 	public String getDescription() {
@@ -30,11 +37,13 @@ public class Todo {
 		this.description = description;
 	}
 
+	@DateTimeFormat(iso = ISO.DATE)
 	@JsonView(TodoJsonView.class)
 	public LocalDate getResolveUntil() {
 		return resolveUntil;
 	}
 
+	@DateTimeFormat(iso = ISO.DATE)
 	public void setResolveUntil(LocalDate resolveUntil) {
 		this.resolveUntil = resolveUntil;
 	}
@@ -53,6 +62,7 @@ public class Todo {
 		return id;
 	}
 
+	@DateTimeFormat(iso = ISO.DATE_TIME)
 	@JsonView(TodoJsonView.class)
 	public LocalDateTime getCreatedOn() {
 		return createdOn;
