@@ -7,10 +7,12 @@
 	href="resources/bower_components/uikit/css/uikit.almost-flat.min.css" />
 <link rel="stylesheet"
 	href="resources/bower_components/uikit/css/components/datepicker.almost-flat.min.css" />
+<link rel="stylesheet/less" type="text/css" href="resources/css/styles.less" />
 <script src="resources/bower_components/jquery/dist/jquery.js"></script>
 <script src="resources/bower_components/uikit/js/uikit.min.js"></script>
 <script src="resources/bower_components/uikit/js/components/datepicker.min.js"></script>
 <script src="resources/bower_components/angular/angular.js"></script>
+<script src="resources/bower_components/less/dist/less.min.js"></script>
 
 <script src="resources/js/app.js"></script>
 <script src="resources/js/app/listTodos.js"></script>
@@ -50,7 +52,7 @@
 					<td>{{todo.createdOn|date:'dd.MM.yyyy HH:mm:ss'}}</td>
 					<td>{{todo.resolveUntil|date:'dd.MM.yyyy'}}</td>
 					<td>{{todo.resolved}}</td>
-					<td><a href="#edit" data-uk-modal ng-click="passData(todo)"><i class="uk-icon-edit"></i></a> <a href="#" ng-controller="deleteTodo" ng-click="executeDelete(todo.id)"><i class="uk-icon-remove"></i></a></td>
+					<td><a href="#edit" data-uk-modal ng-click="passData(todo)"><i class="uk-icon-edit"></i></a> <a href="#" ng-controller="deleteTodo" ng-click="executeDelete(todo.id)" class="delete"><i class="uk-icon-remove"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
