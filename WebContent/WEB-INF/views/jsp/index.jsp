@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Todos</title>
 <link rel="stylesheet"
-	href="resources/bower_components/uikit/css/uikit.min.css" />
+	href="resources/bower_components/uikit/css/uikit.almost-flat.min.css" />
 <script src="resources/bower_components/jquery/dist/jquery.js"></script>
 <script src="resources/bower_components/uikit/js/uikit.min.js"></script>
 <script src="resources/bower_components/angular/angular.js"></script>
@@ -27,7 +27,7 @@
 				<li><a href="#createNew" data-uk-modal>Create new</a></li>
 			</ul>
 		</nav>
-		<table class="uk-table">
+		<table class="uk-table uk-table-striped">
 			<thead>
 				<tr>
 					<th>#</th>
